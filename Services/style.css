@@ -1,0 +1,407 @@
+
+body{
+	color: #333333;
+	background-color: #FFFFFF;
+	font: Open Sans, Helvetica Neue, Verdana, Arial, sans-serif;
+}
+/*top header*/
+#top{
+   background-color: gray;
+   padding-top: 4px;
+   margin-left: -80px;
+   height: 30px;
+   line-height: 11px;
+   
+   
+}
+#top a{
+	color: white;
+	text-align: center;
+}
+
+#top ul.menu{
+	padding-top: 5px;
+	margin: 0;
+	text-align: right;
+	font-size: 11px;
+	list-style: none;
+	padding-bottom: 5px;
+	text-transform: uppercase;
+}
+#top ul.menu > li{
+	display: inline-block;
+}
+#top ul.menu > li a{
+	color: white;
+	/*line-height: 15px;*/
+
+
+}
+#top ul.menu > li + li:before{
+	content: "|";
+	color: #f7f7f7;
+	padding: 0 5px;
+}
+#top ul.menu > li a:hover{
+	color: orange;
+	text-decoration: none;
+}
+
+/*nav search bar styling start*/
+input[type=search]{
+	border: 1px solid #dedede;
+	border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+	padding: 5px;
+	font-size: 1.2em;
+	margin-top: 10px;
+	font-weight: 300;
+	height: 36px;
+}
+
+.search{
+	width: 300px;
+}
+.search::placeholder{
+	opacity: 0.5;
+}
+.search-button{
+	background-color: orange;
+	height: 38px;
+	width: 40px;
+	border: medium none;
+}
+.glyphicon{
+	color: white;
+}
+.top-margin{
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-bottom: 20px;
+}
+/*navbar search bar styling finish*/
+
+/*navbar start*/
+#navbar{
+	background-color: #232323;
+	
+}
+#navbar li a{
+	color: white;
+	text-transform: uppercase;
+
+}
+#navbar li a:hover{
+	color: orange;
+
+}
+.center{
+	margin-left: 10px;
+}
+.social-icon a{
+	font-size: 16px;
+	color: white;
+	padding-top: 15px;
+	text-decoration: none;
+	text-align: center;
+}
+.left{
+	margin-left: -8px;
+}
+
+/*slide bar*/
+.slidebar{
+	margin-top: -25px;
+}
+/*slide bar finish*/
+
+/*about us*/
+.aboutus{
+	margin-top: 50px;
+}
+.main-title{
+	text-align: center;
+	max-width: 750px;
+    margin: 0px auto 75px;
+    /*margin-top: 30px;*/	
+}
+.main-title h2{
+	font-family: "Roboto", sans-serif;
+	font-weight: bold;
+	font-size: 30px;
+	text-transform: uppercase;
+	color: #4b4b4b;
+}
+.line{
+	width: 40px;
+	height: 5px;
+	background-color: orange;
+	margin: 0 auto;
+}
+/*services*/
+.services{
+	margin-top: 50px;
+}
+.why-choose-us{
+	margin-top: 90px;
+	background-color: #F0F0F0;
+	width: 100%;
+	height: 500px;
+
+}
+.wcu-title{
+	margin-top: 70px;
+}
+.wcu-title .discription{
+	text-align: left;
+	margin-top: 5px;
+	font-family: font: Open Sans, Helvetica Neue, Verdana, Arial, sans-serif;
+	height: 100%;
+}
+.icon{
+	font-size: 24px;
+}
+.services-box{
+	border-color: orange;
+	border-radius: 1rem;
+	padding: 25px 50px;
+	background-color: #F5F5F5;
+	margin-top: 20px;
+	border: 1px solid orange;
+}
+
+.service-content h4{
+	text-align: center;
+}
+.service-title{
+	text-align: center;
+	font-weight: bold;
+}
+.discription{
+	text-align: center;
+}
+
+
+/*footer*/
+.footer_area{
+	background-color: #232323;
+}
+.footer-row{
+	margin-top: 100px;
+}
+.widget-title h4{
+	color: orange;
+	text-transform: uppercase;
+	font-family: "Montserrat",sans-serif;
+	font-weight: 500;
+	/*font-size: 50px;*/
+}
+.text-widget{
+	color: #888888;
+}
+.widget-title ul{
+	text-decoration: none;
+	padding: 5px;
+	margin-top: 5px;
+	
+}
+.widget-title li a{
+	color: #888888;
+	margin-bottom: 5px;
+	padding-top: 10px;
+	text-decoration: none;
+
+}
+.widget-title li a:hover{
+	color: orange;
+}
+.widget-title ul{
+	margin-top: 5px;
+	list-style: none;
+}
+.widget-title ul li{
+	color: #888888;
+	list-style-position: outside;
+}
+
+.widget-title ul li i{
+	color: white;
+}
+.footer_area{
+	margin-top: 30px;
+}
+.company-links{
+	margin-left: 90px;
+}
+
+/*footer finish*/
+/*brandWrap start*/
+.brandWrap{
+	background-color: white;
+	height: 100px;
+}
+.brandWrap a{
+	color: gray;
+}
+/*brandWrap finish*/
+/*breadcrumb start*/
+.breadcrumb{
+	margin-left: -30px;
+	border: 1px solid #EBE9EB;
+	background-color: white;
+
+}
+ul.breadcrumb li a{
+	color: black;
+	text-decoration: none;
+}
+ul.breadcrumb li a:hover{
+	color: orange;
+}
+ul.breadcrumb li{
+	text-transform: uppercase;
+	color: #a3a3a3;
+	font-size: 1.2rem;
+}
+/*breadcrumb finish*/
+.title-page h3{
+	text-transform: uppercase;
+	margin-left: -30px;
+}
+
+/*text styling*/
+#content .about-calculator p{
+	margin: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+}
+.row p{
+	padding: 10px;
+
+}
+
+.product{
+    background: #ffffff;
+    margin: 0 0 30px;
+    border: solid 1px #e6e6e6;
+    box-sizing: border-box;
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, .3);
+    text-align: center;
+}
+.product p{
+	text-align: center;
+}
+/*products*/
+#content{
+	margin-top: 30px; 
+}
+#content .product{
+	background: #ffffff;
+	border: solid 1px #e6e6e6;
+	box-sizing: border-box;
+
+}
+#content .product .text{
+	padding: 10px 10px 0px;
+	font-size: 18px;
+	font-weight: 400;
+
+}
+#content .product .text h3 a{
+    color: #000000;
+}
+.border{
+	border: 1px solid #ccc6c6;
+
+}
+.margin{
+	margin-top: 30px;
+}
+/*form of calculator*/
+/*input field styling*/
+.calculator-form input[type=number]{
+	border: 1px solid #dedede;
+	padding: 5px;
+	font-size: 1.2em;
+	margin-top: 7px;
+	font-weight: 300;
+}
+/*select styling*/
+/*.form-select{
+	margin-left: 10px;
+	padding: 5px;
+	border: 1px solid #dedede;
+}*/
+select{
+	margin-left: 10px;
+	padding: 5px;
+	border: 1px solid #dedede;
+}
+.select-form{
+	margin-top: 10px;
+	margin-left: -1px;
+	width: 210px;
+	border-radius: 3px;
+}
+/*form alignment*/
+.calculator-form-wrap{
+	margin-left: 10px;
+	margin-top: 15px;
+}
+.calculator-form input[type=submit]{
+   padding: 8px 10px;
+   text-transform: uppercase;
+   background-color: orange;
+   color: white;
+   border: 1px solid #dedede;
+   margin-top: 10px;
+   border-radius: 4px;
+}
+label{
+	font-size: 1.2em;
+	font-weight: normal;
+}
+.calculator-form .tile-size{
+	font-weight: normal;
+}
+.calculator-form .side input{
+	margin-left: 10px;
+}
+/*register and login form*/
+.form .customer-login,.form .customer-register{
+	border: 1px solid #d3ced2;
+	border-radius: 5px;
+	padding: 20px;
+}
+.customer-login-form .required{
+	color: red;
+	font-weight: bolder;
+}
+input[type=text],input[type=password],input[type=email]{
+   border: 1px solid #dedede;
+    padding: 5px;
+	font-size: 1.2em;
+	margin-top: 7px;
+	font-weight: 300;
+	width: 100%;	
+}
+input[type=submit]{
+   padding: 8px 10px;
+   text-transform: uppercase;
+   background-color: orange;
+   color: white;
+   border: 1px solid #dedede;
+   margin-top: 10px;
+   border-radius: 4px;
+}
+.label-margin{
+	margin-top: 5px;
+}
+.form .register-content{
+	color: #515151;
+	font-weight: bold;
+	font-family: 'Barlow', sans-serif;
+
+}
+/*register and login form*/
