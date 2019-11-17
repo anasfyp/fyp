@@ -1,0 +1,131 @@
+body{
+	background-color: #fff;
+	font-family: "Nunito Sans", sans-serif;
+	/*font-size: 0.875rem;*/
+	font-weight: 400;
+	text-align: left;
+
+}
+
+.topbar{
+	background-color: #232323;
+	height: 64px;
+	/*width: 1260px;*/
+}
+.topbar .top-navbar{
+	min-height: 64px;
+	/*width: 1300px;*/
+}
+.topbar{
+	/*width: 1500px;*/
+}
+.float-right{
+	float: right !important;
+}
+.navbar-header a{
+	color: #fff;
+	margin-left: 20px;
+	margin-top: 10px;
+}
+/*searvh box*/
+.seach-bar{
+	margin-top: 5px;
+}
+
+
+
+/*sidebar*/
+.main-wrapper .left-sidebar{
+	background-color: #232323;
+}
+.left-sidebar{
+	position: absolute;
+	width: 250px;
+	height: 1260px;
+	z-index: 10;
+	padding-top: 64px;
+}
+.main-wrapper .page-wrapper{
+	background-color: ;
+	position: relative;
+	margin-left: 200px;
+	margin-left: 0px;
+}
+.main-wrapper .container-fluid{
+	width: 100%;
+	margin-left: 50px;
+	margin-right: 20px;
+}
+.sidebar-nav ul{
+	margin: 0px;
+	padding: 0px;
+}
+.sidebar-nav ul li a{
+	text-decoration: none;
+}
+.sidebar-nav ul .sidebar-item.selected>.sidebar-link{
+   background-color: gray;
+}
+.sidebar-nav ul .sidebar-item .sidebar-link{
+	color: #fff;
+	padding: 14px 15px;
+	display: flex;
+}
+.fluid-container{
+	margin-left: 300px;
+}
+.col-md-6,.col-lg-2{
+   position: relative;
+   width: 100%;
+   min-height: 1px;
+   padding-right: 10px;
+   padding-left: 10px;
+}
+.jumbotron{
+   text-align: center;
+   margin-top: 40px;
+   margin-left: 20px;
+}
+/*.sidebar-nav ul ul{
+	display: none;
+}
+.sidebar-nav ul li:hover > ul {
+			display: block;*/
+.sidebar-nav .dropdown-content{
+	display: none;
+}
+.sidebar-nav .dropdown:hover .dropdown-content{
+	display: block;
+} 
+input[type=submit]{
+   padding: 8px 10px;
+   text-transform: uppercase;
+   background-color: orange;
+   color: white;
+   border: 1px solid #dedede;
+   margin-top: 10px;
+   border-radius: 4px;
+}
+h1{
+	margin-top: -10px;
+	font-size: 30px;
+	margin-bottom: 0.5rem;
+    font-family: sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+    color: #131313;
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.border{
+	border: 1px solid #eeeeee;
+	padding: 50px;
+}
+.add-architecture{
+	margin-top: 5px;
+
+}
+.data table{
+	overflow: scroll;
+}
