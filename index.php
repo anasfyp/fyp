@@ -1,112 +1,129 @@
 <?php
-
-	include("db_connect.php");
-
-
-
-	session_start();
-
-	if(!empty($_SESSION['username']))
-	{
-		header('location:services.php');
-		
+session_start();
+require_once("dbcontroller.php");
+$db_handle = new DBController();
+if(!empty($_GET["action"])) {
+switch($_GET["action"]) {
+	case "add":
+		if(!empty($_POST["quantity"])) {
+			$productByCode = $db_handle->runQuery("SELECT * FROM tblproduct WHERE code='" . $_GET["code"] . "'");
+			$itemArray = array($productByCode[0]["code"]=>array('name'=>$productByCode[0]["name"], 'code'=>$productByCode[0]["code"], 'quantity'=>$_POST["quantity"], 'price'=>$productByCode[0]["price"], 'image'=>$productByCode[0]["image"]));
+			
+			if(!empty($_SESSION["cart_item"])) {
+				if(in_array($productByCode[0]["code"],array_keys($_SESSION["cart_item"]))) {
+					foreach($_SESSION["cart_item"] as $k => $v) {
+							if($productByCode[0]["code"] == $k) {
+								if(empty($_SESSION["cart_item"][$k]["quantity"])) {
+									$_SESSION["cart_item"][$k]["quantity"] = 0;
+								}
+								$_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
+							}
+					}
+				} else {
+					$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
+				}
+			} else {
+				$_SESSION["cart_item"] = $itemArray;
+			}
 		}
-		
-	?>
+	break;
+	case "remove":
+		if(!empty($_SESSION["cart_item"])) {
+			foreach($_SESSION["cart_item"] as $k => $v) {
+					if($_GET["code"] == $k)
+						unset($_SESSION["cart_item"][$k]);				
+					if(empty($_SESSION["cart_item"]))
+						unset($_SESSION["cart_item"]);
+			}
+		}
+	break;
+	case "empty":
+		unset($_SESSION["cart_item"]);
+	break;	
+}
+}
+?>
+<HTML>
+<HEAD>
+<TITLE>Simple PHP Shopping Cart</TITLE>
+<link href="style.css" type="text/css" rel="stylesheet" />
+</HEAD>
+<BODY>
+<div id="shopping-cart">
+<div class="txt-heading">Shopping Cart</div>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Login V8</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-<!--===============================================================================================-->
-</head>
-<body>
-	
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action="logincheck.php" method="post">
-					<span class="login100-form-title">
-						Sign In
-					</span>
+<a id="btnEmpty" href="index.php?action=empty">Empty Cart</a>
+<?php
+if(isset($_SESSION["cart_item"])){
+    $total_quantity = 0;
+    $total_price = 0;
+?>	
+<table class="tbl-cart" cellpadding="10" cellspacing="1">
+<tbody>
+<tr>
+<th style="text-align:left;">Name</th>
+<th style="text-align:left;">Code</th>
+<th style="text-align:right;" width="5%">Quantity</th>
+<th style="text-align:right;" width="10%">Unit Price</th>
+<th style="text-align:right;" width="10%">Price</th>
+<th style="text-align:center;" width="5%">Remove</th>
+</tr>	
+<?php		
+    foreach ($_SESSION["cart_item"] as $item){
+        $item_price = $item["quantity"]*$item["price"];
+		?>
+				<tr>
+				<td><img src="<?php echo $item["image"]; ?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
+				<td><?php echo $item["code"]; ?></td>
+				<td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
+				<td  style="text-align:right;"><?php echo "$ ".$item["price"]; ?></td>
+				<td  style="text-align:right;"><?php echo "$ ". number_format($item_price,2); ?></td>
+				<td style="text-align:center;"><a href="index.php?action=remove&code=<?php echo $item["code"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
+				</tr>
+				<?php
+				$total_quantity += $item["quantity"];
+				$total_price += ($item["price"]*$item["quantity"]);
+		}
+		?>
 
-					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-						<input class="input100" type="text" name="username" placeholder="Username">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate = "Please enter password">
-						<input class="input100" type="password" name="password" placeholder="Password">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="text-right p-t-13 p-b-23">
-						<span class="txt1">
-								
-						</span>
-
-						<a href="#" class="txt2">
-							
-						</a>
-					</div>
-
-					<div class="container-login100-form-btn">
-						<!-- <button type="submit" name="submit" class="login100-form-btn">
-							Sign in
-						</button> -->
-						
-
-						<input type="Submit" class="login100-form-btn" name="Submit">
-					</div>
-<div>
-<br/>   
+<tr>
+<td colspan="2" align="right">Total:</td>
+<td align="right"><?php echo $total_quantity; ?></td>
+<td align="right" colspan="2"><strong><?php echo "$ ".number_format($total_price, 2); ?></strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>		
+  <?php
+} else {
+?>
+<div class="no-records">Your Cart is Empty</div>
+<?php 
+}
+?>
 </div>
-					
-				</form>
+
+<div id="product-grid">
+	<div class="txt-heading">Products</div>
+	<?php
+	$product_array = $db_handle->runQuery("SELECT * FROM tblproduct ORDER BY id ASC");
+	if (!empty($product_array)) { 
+		foreach($product_array as $key=>$value){
+	?>
+		<div class="product-item">
+			<form method="post" action="index.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
+			<div class="product-image"><img src="<?php echo $product_array[$key]["image"]; ?>"></div>
+			<div class="product-tile-footer">
+			<div class="product-title"><?php echo $product_array[$key]["name"]; ?></div>
+			<div class="product-price"><?php echo "$".$product_array[$key]["price"]; ?></div>
+			<div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div>
 			</div>
+			</form>
 		</div>
-	</div>
-	
-	
-<!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="js/main.js"></script>
-
-</body>
-</html>
-
-
+	<?php
+		}
+	}
+	?>
+</div>
+</BODY>
+</HTML>
