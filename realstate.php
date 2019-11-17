@@ -1,21 +1,27 @@
+<script src="js/app.js" type="text/javascript"></script>
 <?php 
 include('header.php');
 include('db_connect.php');
+
+require_once("dbcontroller.php");
+$db_handle = new DBController();
+$query ="SELECT distinct type FROM property_type";
+$results = $db_handle->runQuery($query);
 
 session_start();
 
 $name=$_SESSION['username'];
 
+
 if(!isset($_SESSION['username']))
 {header('location:index.php');}
-
 
 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    
+    <title></title>
     <title>E-Construction</title>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <meta charset="utf-8">
@@ -30,6 +36,22 @@ if(!isset($_SESSION['username']))
     <link type="text/css" rel="stylesheet" href="style.css" />
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+<script>
+function getProname(val) {
+    $.ajax({
+    type: "POST",
+    url: "getProname.php",
+    data:'type='+val,
+    success: function(data){
+        $("#state-list").html(data);
+        getCity();
+    }
+    });
+}
+
+</script>
+
 </head>
 <?php include('container.php');?>
 
@@ -100,11 +122,6 @@ if(!isset($_SESSION['username']))
         </div>
     </div>
    </div>
-   
-
-
-
-
        <div class="container main-heading">
         <div class="row">
             <div class="col-md-12 heading">
@@ -131,44 +148,32 @@ if(!isset($_SESSION['username']))
 
             <div class="col-md-4 form-group">
                 <h5 for="type"><b>Type:</b></h5>
-                    <select id="Property_type" name="Property_type" class="form-control">
-                        <option value="Home">Home</option>
-                        <option value="Plot">Plot</option>
-                        <option value="Commercial">Commercial</option>
-                    </select>
+                    
+<select name="Property_type" id="Property_type" class="form-control" onChange="getProname(this.value);">
+<option value disabled selected>Select Type</option>
+<?php
+foreach($results as $country) {
+?>
+<option value="<?php echo $country["type"]; ?>"><?php echo $country["type"]; ?></option>
+<?php
+}
+?>
+</select>
             </div>
             
             <div class="col-md-4 form-group">
                 <h5 for="stype"><b>Sub Type: </b></h5>
-                    <select id="subtype" name="subtype" class="form-control">
-                        <option value="House">House</option>
-                        <option value="Flat">Flat</option>
-                        <option value="Upper Portion">Upper Portion</option>
-                        <option value="Lower Portion">Lower Portion</option>
-                        <option value="Farmhouse">Farmhouse</option>
-                        <option value="Room">Room</option>
-                        <option value="Penthouse">Penthouse</option>
-                        <option value="Residential Plot">Resitential Plot</option>
-                        <option value="Commercial Plot">Commercial Plot</option>
-                        <option value="Agricultural Plot">Agricultural Plot</option>
-                        <option value="Industrial Land">Industrial Land</option>
-                        <option value="Plot File">Plot File</option>
-                        <option value="Plot Form">Plot Form</option>
-                        <option value="Office">Office</option>
-                        <option value="Shop">Shop</option>
-                        <option value="Warehouse">Warehouse</option>
-                        <option value="Factory">Factory</option>
-                        <option value="Building">Building</option>
-                        <option value="Other">Other</option>
-                    </select>
+<select name="subtype" id="state-list" class="form-control select2" onChange="getCity(this.value);">
+<option value="">Select Sub Type</option>
+</select>
             </div>
 </div>
 
 
 
 <div class="row">
-            <div class="col-md-6 form-group">
-                <h5><b>Select City:</b></h5>
+<div class="col-md-6 form-group">
+<h5><b>Select City:</b></h5>
  <select id="Select_city" name="Select_city" required class="form-control">
 <option value="">Select City Name</option>
 <?php 
@@ -286,10 +291,32 @@ echo "<option value='$city_name'>$city_name</option>";
             </div>
         </div>
                      
-            <div class="form-group">
-                <h4 for="customer_id"><b>Customer_id:</b></h5>
-                <input type="text" id="customer_id" name="customer_id" placeholder="Customer ID" class="form-control"><br>
-            </div>
+
+
+
+<?php 
+$sql = "SELECT * FROM login where username = '".$_SESSION['username'] ."'";
+if($result = mysqli_query($conn, $sql)){
+    if(mysqli_num_rows($result) > 0){
+         
+            
+        while($row = mysqli_fetch_array($result)){
+                echo '<input type="hidden" id="customer_id" name="customer_id" value='.$row['id'].'><br/>';
+
+        }
+        
+        // Free result set
+        mysqli_free_result($result);
+    } else{
+        echo "No records matching your query were found.";
+    }
+} else{
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+}
+ 
+// Close connection
+mysqli_close($conn);
+?>
 
 
             <div class="form-group">

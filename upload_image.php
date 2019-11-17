@@ -7,8 +7,10 @@ include_once("db_connect.php");
 		$filename = $_FILES['images']['name'][$key];		
         if(move_uploaded_file($_FILES['images']['tmp_name'][$key],$upload_image)){
             $images[] = $upload_image;
-			$insert_sql = "INSERT INTO realstate_pics(image_id, image, realstate_id) 
-				VALUES('', '".$filename."', '".time()."')";
+            $customer_id=$_POST['customer_id'];
+            
+			$insert_sql = "INSERT INTO realstate_pics(image_id, image, customer_id) 
+				VALUES('', '".$filename."', '".$customer_id."')";
 			mysqli_query($conn, $insert_sql) or die("database error: ". mysqli_error($conn));
         }
     }
@@ -48,7 +50,6 @@ $customer_id=$_POST['customer_id'];
        if($insert_pc)
     {
         echo "<script>alert('Property Has been Insert!')</script>";
-   
 
 }
     }
