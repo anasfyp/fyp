@@ -25,7 +25,7 @@
         <header class="topbar">
           <nav class="navbar top-navbar navbar-expand-md navbar-dark">
             <div class="navbar-header">
-              <a href="#" class="navbar-brand">E-construction</a>
+              <a href="../admin-panel.php" class="navbar-brand">E-construction</a>
             </div>
             <ul class="navbar-nav float-right">
               <li class="nav-item">
@@ -35,7 +35,7 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <span><i class="fa fa-user-circle" style="font-size: 30px;padding: 10px; color: white; margin-right: 90px; padding-top: 15px;"></i></span></a>
                 <ul class="dropdown-menu">
-                  <li><a class="fa fa-power-off" href="#"> Logout</a></li>
+                  <li><a class="fa fa-power-off" href="../adminlogout.php"> Logout</a></li>
                 </ul>
               </li>
             </ul>
@@ -47,22 +47,22 @@
             <nav class="sidebar-nav">
               <ul class="sidebarnav">
                 <li class="sidebar-item selected">
-                  <a href="#" class="sidebar-link waves-effect waves-dark sidebar-link">
+                  <a href="../admin-panel.php" class="sidebar-link waves-effect waves-dark sidebar-link">
                     <span class="hide-menu"><i class="fa fa-dashboard"></i> Dashboard</span>
                   </a>
                 </li>
                 <li class="sidebar-item dropdown" data-toggle="collapse" data-target="#service" class="collapsed">
                   <a href="#" class="sidebar-link waves-effect waves-dark sidebar-link">
-                    <span class="hide-menu"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></span>
+                    <span class="hide-menu"><i class="fa fa-globe fa-lg"></i> Services <span class="caret"></span></span>
                   </a>
                   <ul class="collapse first-level in dropdown-content" id="service" >
                     <li class="sidebar-item">
-                      <a href="#" class="sidebar-link">
+                      <a href="../serviceUpdate/serviceadd.php" class="sidebar-link">
                         <span class="hide-menu"><i class="fa fa-sticky-note"></i> Add Service</span>
                       </a>
                     </li>
                     <li class="sidebar-item">
-                      <a href="#" class="sidebar-link">
+                      <a href="../serviceUpdate/updateservices.php" class="sidebar-link">
                         <span class="hide-menu"><i class="fa fa-sticky-note"></i> Manage Services</span>
                       </a>
                     </li>
@@ -78,41 +78,49 @@
 
                 <li class="sidebar-item dropdown" data-toggle="collapse" data-target="#service" class="collapsed">
                   <a href="" class="sidebar-link waves-effect waves-dark sidebar-link">
-                    <span class="hide-menu"><i class="fa fa-building-o" aria-hidden="true"></i> Cities <span class="arrow"></span></span>
+                    <span class="hide-menu"><i class="fa fa-building-o" aria-hidden="true"></i> Cities <span class="caret"></span></span>
                   </a>
                   <ul class="collapse first-level in dropdown-content" id="service" >
                     <li class="sidebar-item">
-                      <a href="addcities.php" class="sidebar-link">
+                      <a href="../addcities.php" class="sidebar-link">
                         <span class="hide-menu"><i class="fa fa-sticky-note"></i> Add Cities</span>
                       </a>
                     </li>
+                  </ul>
+                </li>
+
+                <li class="sidebar-item dropdown" data-toggle="collapse" data-target="#service" class="collapsed">
+                  <a href="#" class="sidebar-link waves-effect waves-dark sidebar-link">
+                    <span class="hide-menu"><i class="fa fa-globe fa-lg"></i> Material <span class="caret"></span></span>
+                  </a>
+                  <ul class="collapse first-level in dropdown-content" id="service" >
                     <li class="sidebar-item">
-                      <a href="#" class="sidebar-link">
-                        <span class="hide-menu"><i class="fa fa-sticky-note"></i> Manage Cities</span>
+                      <a href="../material/materialadd.php" class="sidebar-link">
+                        <span class="hide-menu"><i class="fa fa-sticky-note"></i> Add Material</span>
+                      </a>
+                    </li>
+                    <li class="sidebar-item">
+                      <a href="../material/updatematerial.php" class="sidebar-link">
+                        <span class="hide-menu"><i class="fa fa-sticky-note"></i> Manage Material</span>
                       </a>
                     </li>
 
                   </ul>
                 </li>
 
-                 <li class="sidebar-item">
-                  <a href="#" class="sidebar-link waves-effect waves-dark sidebar-link">
-                    
-                    <span class="hide-menu"><i class="fa fa-shopping-cart"></i>  E commerce</span>
-                  </a>
-                </li>
+
                 <li class="sidebar-item dropdown" data-toggle="collapse" data-target="#service" class="collapsed">
                   <a href="#" class="sidebar-link waves-effect waves-dark sidebar-link">
-                    <span class="hide-menu"><i class="fa fa-globe fa-lg"></i> Architectural Solution <span class="arrow"></span></span>
+                    <span class="hide-menu"><i class="fa fa-globe fa-lg"></i> Architectural Solution <span class="caret"></span></span>
                   </a>
                   <ul class="collapse first-level in dropdown-content" id="service" >
                     <li class="sidebar-item">
-                      <a href="archetectural-solution/addArchetecturalDesign.php" class="sidebar-link">
+                      <a href="addArchetecturalDesign.php" class="sidebar-link">
                         <span class="hide-menu"><i class="fa fa-sticky-note"></i> Add Architecture Design</span>
                       </a>
                     </li>
                     <li class="sidebar-item">
-                      <a href="services/updateservices.php" class="sidebar-link">
+                      <a href="showArchetecturalDesign.php" class="sidebar-link">
                         <span class="hide-menu"><i class="fa fa-sticky-note"></i> Manage Architecture Design</span>
                       </a>
                     </li>

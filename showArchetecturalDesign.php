@@ -1,4 +1,4 @@
-<?php include("../db/db.php"); ?>
+<?php include("../db_connect.php"); ?>
 
 
 
@@ -35,7 +35,7 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <span><i class="fa fa-user-circle" style="font-size: 30px;padding: 10px; color: white; margin-right: 90px; padding-top: 15px;"></i></span></a>
                 <ul class="dropdown-menu">
-                  <li><a class="fa fa-power-off" href="#"> Logout</a></li>
+                  <li><a class="fa fa-power-off" href="../adminlogout.php"> Logout</a></li>
                 </ul>
               </li>
             </ul>
@@ -47,22 +47,22 @@
             <nav class="sidebar-nav">
               <ul class="sidebarnav">
                 <li class="sidebar-item selected">
-                  <a href="admin-panel.php" class="sidebar-link waves-effect waves-dark sidebar-link">
+                  <a href="../admin-panel.php" class="sidebar-link waves-effect waves-dark sidebar-link">
                     <span class="hide-menu"><i class="fa fa-dashboard"></i> Dashboard</span>
                   </a>
                 </li>
                 <li class="sidebar-item dropdown" data-toggle="collapse" data-target="#service" class="collapsed">
                   <a href="#" class="sidebar-link waves-effect waves-dark sidebar-link">
-                    <span class="hide-menu"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></span>
+                    <span class="hide-menu"><i class="fa fa-globe fa-lg"></i> Services <span class="caret"></span></span>
                   </a>
                   <ul class="collapse first-level in dropdown-content" id="service" >
                     <li class="sidebar-item">
-                      <a href="services/serviceadd.php" class="sidebar-link">
+                      <a href="../serviceUpdate/serviceadd.php" class="sidebar-link">
                         <span class="hide-menu"><i class="fa fa-sticky-note"></i> Add Service</span>
                       </a>
                     </li>
                     <li class="sidebar-item">
-                      <a href="services/updateservices.php" class="sidebar-link">
+                      <a href="../serviceUpdate/updateservices.php" class="sidebar-link">
                         <span class="hide-menu"><i class="fa fa-sticky-note"></i> Manage Services</span>
                       </a>
                     </li>
@@ -78,11 +78,11 @@
 
                 <li class="sidebar-item dropdown" data-toggle="collapse" data-target="#service" class="collapsed">
                   <a href="" class="sidebar-link waves-effect waves-dark sidebar-link">
-                    <span class="hide-menu"><i class="fa fa-building-o" aria-hidden="true"></i> Cities <span class="arrow"></span></span>
+                    <span class="hide-menu"><i class="fa fa-building-o" aria-hidden="true"></i> Cities <span class="caret"></span></span>
                   </a>
                   <ul class="collapse first-level in dropdown-content" id="service" >
                     <li class="sidebar-item">
-                      <a href="addcities.php" class="sidebar-link">
+                      <a href="../addcities.php" class="sidebar-link">
                         <span class="hide-menu"><i class="fa fa-sticky-note"></i> Add Cities</span>
                       </a>
                     </li>
@@ -97,16 +97,16 @@
                 </li>
                 <li class="sidebar-item dropdown" data-toggle="collapse" data-target="#service" class="collapsed">
                   <a href="#" class="sidebar-link waves-effect waves-dark sidebar-link">
-                    <span class="hide-menu"><i class="fa fa-globe fa-lg"></i> Architectural Solution <span class="arrow"></span></span>
+                    <span class="hide-menu"><i class="fa fa-globe fa-lg"></i> Architectural Solution <span class="caret"></span></span>
                   </a>
                   <ul class="collapse first-level in dropdown-content" id="service" >
                     <li class="sidebar-item">
-                      <a href="archetectural-solution/addArchetecturalDesign.php" class="sidebar-link">
+                      <a href="addArchetecturalDesign.php" class="sidebar-link">
                         <span class="hide-menu"><i class="fa fa-sticky-note"></i> Add Architecture Design</span>
                       </a>
                     </li>
                     <li class="sidebar-item">
-                      <a href="services/updateservices.php" class="sidebar-link">
+                      <a href="showArchetecturalDesign.php" class="sidebar-link">
                         <span class="hide-menu"><i class="fa fa-sticky-note"></i> Manage Architecture Design</span>
                       </a>
                     </li>
@@ -136,7 +136,7 @@
                      <th>image 1</th>
                      <th>image 2</th>
                      <th>image 3</th>
-                     <th>Discription</th>
+                     <th style="min-width:500px;">Discription</th>
                      <th>Price</th>
                      <th>Plot Area</th>
                      <th>Building Type</th>

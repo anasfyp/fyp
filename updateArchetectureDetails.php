@@ -101,16 +101,11 @@
                   </a>
                   <ul class="collapse first-level in dropdown-content" id="service" >
                     <li class="sidebar-item">
-                      <a href="addcities.php" class="sidebar-link">
+                      <a href="../addcities.php" class="sidebar-link">
                         <span class="hide-menu"><i class="fa fa-sticky-note"></i> Add Cities</span>
                       </a>
                     </li>
-                    <li class="sidebar-item">
-                      <a href="#" class="sidebar-link">
-                        <span class="hide-menu"><i class="fa fa-sticky-note"></i> Manage Cities</span>
-                      </a>
-                    </li>
-
+                    
                   </ul>
                 </li>
 
@@ -126,12 +121,12 @@
                   </a>
                   <ul class="collapse first-level in dropdown-content" id="service" >
                     <li class="sidebar-item">
-                      <a href="archetectural-solution/addArchetecturalDesign.php" class="sidebar-link">
+                      <a href="addArchetecturalDesign.php" class="sidebar-link">
                         <span class="hide-menu"><i class="fa fa-sticky-note"></i> Add Architecture Design</span>
                       </a>
                     </li>
                     <li class="sidebar-item">
-                      <a href="services/updateservices.php" class="sidebar-link">
+                      <a href="showArchetecturalDesign.php" class="sidebar-link">
                         <span class="hide-menu"><i class="fa fa-sticky-note"></i> Manage Architecture Design</span>
                       </a>
                     </li>
@@ -155,21 +150,21 @@
                 <form method="post" class="add-architecture" enctype="multipart/form-data">
                   <div class="form-group">
                      <label for="archi_name">Architecture Name:</label>
-                     <input type="text" id="archi_name" name="title" placeholder="Architecture Name" required class="form-control" title="no special characters" pattern="^[0-9a-zA-Z\s]+$" value="<?php echo $name; ?>">
+                     <input type="text" id="archi_name" name="title" placeholder="Architecture Name"  class="form-control" title="no special characters" pattern="^[0-9a-zA-Z\s]+$" value="<?php echo $name; ?>">
                   </div>
                   <div class="form-group">
                      <label for="image1">Image 1:</label>
-                     <input type="file" id="image1" name="image_1" required class="form-control">
+                     <input type="file" id="image1" name="image_1" class="form-control">
                      <img src="architectureimg/<?php echo $image_1; ?>" style="height: 100px; margin-top: 5px;">
                   </div>
                   <div class="form-group">
                      <label for="image2">Image 2:</label>
-                     <input type="file" id="image2" name="image_2" required class="form-control">
+                     <input type="file" id="image2" name="image_2"  class="form-control">
                      <img src="architectureimg/<?php echo $image_2; ?>" style="height: 100px; margin-top: 5px;">
                   </div>
                   <div class="form-group">
                      <label for="image2">Map image:</label>
-                     <input type="file" id="image2" name="image_3" required class="form-control">
+                     <input type="file" id="image2" name="image_3"  class="form-control">
                      <img src="architectureimg/<?php echo $image_3; ?>" style="height: 100px; margin-top: 5px;">
                   </div>
                   <div class="form-group">
@@ -180,39 +175,39 @@
                   </div>
                   <div class="form-group">
                      <label for="price">price:</label>
-                     <input type="text" id="price" name="price" placeholder="Enter Price" required class="form-control" pattern="^[0-9]+$" title="only numbers" value="<?php echo $price; ?>">
+                     <input type="text" id="price" name="price" placeholder="Enter Price"  class="form-control" pattern="^[0-9]+$" title="only numbers" value="<?php echo $price; ?>">
                   </div>
                   <div class="form-group">
                      <label for="plot_area">Plot Area:</label>
-                     <input type="text" id="plot_area" name="plot_area" required class="form-control" pattern="^[0-9]+$" title="only numbers" value="<?php echo $plot_area; ?>">
+                     <input type="text" id="plot_area" name="plot_area" class="form-control" pattern="^[0-9]+$" title="only numbers" value="<?php echo $plot_area; ?>">
                   </div>
                   <div class="form-group">
                      <label for="building_type">Building type:</label>
-                     <input type="text" id="building_type" name="building_type" required class="form-control" title="only alphabat" pattern="^[a-zA-Z\s]+$" value="<?php echo $building_type; ?>">
+                     <input type="text" id="building_type" name="building_type"  class="form-control" title="only alphabat" pattern="^[a-zA-Z\s]+$" value="<?php echo $building_type; ?>">
                   </div>
                   <div class="form-group">
                      <label for="style">Style:</label>
-                     <input type="text" id="style" name="style" required class="form-control" title="only alphabat" pattern="^[a-zA-Z\s]+$" value="<?php echo $style;?>">
+                     <input type="text" id="style" name="style" class="form-control" title="only alphabat" pattern="^[a-zA-Z\s]+$" value="<?php echo $style;?>">
                   </div>
                   <div class="form-group">
                      <label for="badroom">Badrooms</label>
-                     <input type="number" id="badroom" name="badroom" required class="form-control" min="1" pattern="^[0-9]+$" title="only numbers" value="<?php echo $badroom;?>">
+                     <input type="number" id="badroom" name="badroom" class="form-control" min="1" pattern="^[0-9]+$" title="only numbers" value="<?php echo $badroom;?>">
                   </div>
                   <div class="form-group">
                      <label for="bathroom">Bathrooms</label>
-                     <input type="number" id="bathroom" name="bathroom" required class="form-control" min="1" pattern="^[0-9]+$" title="only numbers" value="<?php echo $bathroom?>">
+                     <input type="number" id="bathroom" name="bathroom" class="form-control" min="1" pattern="^[0-9]+$" title="only numbers" value="<?php echo $bathroom?>">
                   </div>
                   <div class="form-group">
                      <label for="floor">Floor</label>
-                     <input type="number" id="floor" name="floor" required class="form-control" min="1" pattern="^[0-9]+$" title="only numbers" value="<?php echo $floor;?>">
+                     <input type="number" id="floor" name="floor" class="form-control" min="1" pattern="^[0-9]+$" title="only numbers" value="<?php echo $floor;?>">
                   </div>
                   <div class="form-group">
                      <label for="kitchen">Kitchen</label>
-                     <input type="number" id="kitchen" name="kitchen" required class="form-control" min="1" pattern="^[0-9]+$" title="only numbers" value="<?php echo $kitchen;?>">
+                     <input type="number" id="kitchen" name="kitchen" class="form-control" min="1" pattern="^[0-9]+$" title="only numbers" value="<?php echo $kitchen;?>">
                   </div>
                   <div class="form-group">
                     <label for="f_type">Foundation Type:</label>
-                    <input type="text" id="f_type" name="f_type" required class="form-control" title="only alphabat" pattern="^[a-zA-Z\s]+$" value="<?php echo $foundation_type;?>">
+                    <input type="text" id="f_type" name="f_type" class="form-control" title="only alphabat" pattern="^[a-zA-Z\s]+$" value="<?php echo $foundation_type;?>">
                   </div>
 
                   <!-- <button type="Submit" name="addcity">Submit</button> -->
